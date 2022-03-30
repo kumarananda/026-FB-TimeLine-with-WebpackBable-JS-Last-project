@@ -6,4 +6,13 @@
     padding: 0px;
     font-family: poppins; 
 }
+body {
+    background-color: aliceblue;
+}
+
+.userMPic{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
 
