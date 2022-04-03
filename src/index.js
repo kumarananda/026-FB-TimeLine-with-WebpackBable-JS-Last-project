@@ -3,11 +3,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import "bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap/js/dist/modal";
 import "bootstrap/js/dist/alert";
+import "bootstrap/js/dist/dropdown";
+// import "bootstrap/dist/js/bootstrap.bundle.min";
 
 import 'boxicons/css/boxicons.min.css';
 import "./index.css"
 import "./main.scss"
 import "font-awesome/css/font-awesome.min.css";
+
 
 import ananda from './img/901fqxtw.bmp'
 import axios from "axios";
@@ -40,6 +43,7 @@ document.addEventListener('DOMContentLoaded' , getPost)
 // createPostForm
 document.getElementById('createPostForm').addEventListener('submit', createPostForm );
 
+
 //get alert on form
 const msg = document.querySelector('.msg');
 
@@ -50,7 +54,7 @@ function createPostForm(e){
     let data = Object.fromEntries(form_data.entries())
     
     // form valedation
-    if(data.name=="" || data.userPhoto == "" || data.userContent == "" || data.PostPhoto  ){
+    if(data.name=="" || data.userPhoto == "" || data.userContent == "" || data.PostPhoto == ""  ){
         msg.innerHTML = Alert.danger('All fields are required')
     }else {
 
@@ -62,9 +66,10 @@ function createPostForm(e){
             content : data.userContent ,
             P_photo : data.PostPhoto,
         }).then(res => {
-        
-
+            getPost()
+            msg.innerHTML = Alert.success('Your post is update successfully')
         })
     }
 
 }
+

@@ -11,7 +11,7 @@ class Post {
 
         let post = "";
         posts.reverse().map((data, index) => {
-            let {U_name, U_Photo, content, P_photo} = data;
+            let {id, U_name, U_Photo, content, P_photo} = data;
             post += `
             <div class="card my-3 shadow">
                         <div class="card-body">
@@ -25,7 +25,21 @@ class Post {
                                             <span class="time"> 2h</span> <i class='bx bx-brightness bx-spin bx-rotate-90' ></i></i>
                                         </div>
                                     </div>
-                                    <div  class="drop_manu"><button>...</button></div> 
+                                    
+
+                                <div class="dropdown show">
+                                    <a class="btn drop_manu " href="#" role="button" id="fbPostDroupDown-${id}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    ...
+                                    </a>
+                                
+                                    <div class="dropdown-menu" aria-labelledby="fbPostDroupDown-${id}">
+                                    <a edit_id="${id}" id="edit_post"  class="dropdown-item"  href="#">Edit Post</a>
+                                    <a remove_id="${id}" id="delete_post" class="dropdown-item"  href="#">Remove Post</a>
+                                    
+                                    </div>
+                                </div>
+
+
                                 </div>
                                 <div class="user_post_content">
                                     <p>${content}</p>
